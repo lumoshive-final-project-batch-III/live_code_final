@@ -67,8 +67,8 @@ let groups = [
 function hireGroup(groups, budget) {
     // code di sini
 
-    if (budget === null || budget === undefined ) {
-        return "There's no budget.";
+    if (budget === 0 || budget === null || budget === undefined ) {
+        return "There's no budget";
     }
 
     let hireResult = {
@@ -97,9 +97,12 @@ function hireGroup(groups, budget) {
                 } else {
                     hireResult.performance[nowGroup.name] ++;
                 }
-
+                nowHire = true;
                 // console.log(`hire success ${nowGroup.name}, available budget: ${hireResult.change}`)
             }
+        }
+        if(!nowHire) {
+            break;
         }
     }
 
