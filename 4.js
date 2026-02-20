@@ -104,15 +104,67 @@ NOTE:
 
 
 function splitData(data) {
-  // your code here
+  // console.log(data);
+  let array = [];
+
+  for (let baris = 0; baris < data.length; baris++) {
+    // console.log(data[baris]);
+    let simpanKata = "";
+    let simpanAngka = "";
+
+    for (let kolom = 0; kolom < data[baris].length; kolom++) {
+      // console.log(data[baris][kolom]);
+      if (data[baris][kolom] === "-") {
+        continue;
+      } else if (data[baris][kolom] >= "0" && data[baris][kolom] <= "9") {
+        simpanAngka += data[baris][kolom];
+      } else {
+        simpanKata += data[baris][kolom];
+      }
+    }
+    array.push([simpanKata, simpanAngka]);
+  }
+
+  // console.log(array);
+  return array;
 }
 
 function createObject(data) {
   // your code here
+  let object = [];
+  for (let baris = 0; baris < data.length; baris++) {
+    let name = data[baris][0];
+    let money = parseInt(data[baris][1]);
+    // console.log(name, money);
+    object.push({
+      name: name,
+      money: money
+    });
+  }
+  // console.log(object);
+  return object;
 }
 
 function checkMoney(data) {
   // your code here
+  let winner = {
+    name: "",
+    money: 0
+  }
+
+  for (let baris = 0; baris < data.length; baris++) {
+    // console.log(data[baris].money);
+    if (data[baris].money > winner.money) {
+      winner.name = data[baris].name;
+      winner.money = data[baris].money;
+    }
+  }
+
+  // console.log(winner);
+
+  // console.log(winner);
+
+  return winner;
 }
 
 function auctionWinner(data) {
@@ -120,6 +172,7 @@ function auctionWinner(data) {
   let object = createObject(array);
   let winner = checkMoney(object);
   // your code here
+  return "Selamat " + winner.name + " anda mendapatkan tiket dengan harga " + winner.money;
 }
 
 /* TEST CASE */
