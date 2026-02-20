@@ -105,10 +105,43 @@ NOTE:
 
 function splitData(data) {
   // your code here
+  let splitResult = [];
+
+  for (let i=0; i< data.length; i++) {
+    let stringData = data[i];
+    let nama= "";
+    let money = "";
+    let splittedChar = false;
+
+    for (let j=0; j < stringData.length; j++) {
+      if (stringData[j] === "-"){
+        splittedChar = true;
+        continue;
+      }
+
+      if (!splittedChar) {
+        nama += stringData[j];
+      } else {
+        money += stringData[j];
+      }
+    }
+    splitResult.push([nama, money]);
+  }
+  return splitResult;
 }
 
 function createObject(data) {
   // your code here
+  let auctionMember = [];
+
+  for (let i=0; i < data.length; i++){
+    let member = {
+      name: data[i][0],
+      money: Number(data[i][1])
+    };
+    auctionMember.push(member);
+  }
+  return auctionMember;
 }
 
 function checkMoney(data) {
@@ -127,6 +160,11 @@ function auctionWinner(data) {
 let data1 = ["didi-2050", "rudi-50000", "andi-1000", "budi-10000"];
 
 let data2 = ["murni-120000", "rani-50400", "dini-107", "rinjani-18000"];
+
+console.log(splitData(data1));
+
+let dataSplit = splitData(data1);
+console.log(createObject(dataSplit));
 
 console.log(auctionWinner(data1));
 // Selamat rudi anda mendapatkan tiket dengan harga 50000
