@@ -146,6 +146,16 @@ function createObject(data) {
 
 function checkMoney(data) {
   // your code here
+  let tempWinner = data[0];
+
+  for (let i=1 ; i< data.length; i++) {
+    let member = data[i];
+
+    if ( member.money> tempWinner.money) {
+      tempWinner = member
+    }
+  }
+  return tempWinner;
 }
 
 function auctionWinner(data) {
@@ -153,6 +163,16 @@ function auctionWinner(data) {
   let object = createObject(array);
   let winner = checkMoney(object);
   // your code here
+
+  if( !data || data.length=== 0) {
+   return "data not found" 
+  }
+
+  let splittedData = splitData(data);
+  let objectData = createObject(splittedData);
+  let winnerData = checkMoney(objectData);
+
+  return "Selamat " + winnerData.name + " anda mendapatkan tiket dengan harga " + winnerData.money;
 }
 
 /* TEST CASE */
@@ -161,15 +181,15 @@ let data1 = ["didi-2050", "rudi-50000", "andi-1000", "budi-10000"];
 
 let data2 = ["murni-120000", "rani-50400", "dini-107", "rinjani-18000"];
 
-console.log(splitData(data1));
+// console.log(splitData(data1));
 
-let dataSplit = splitData(data1);
-console.log(createObject(dataSplit));
+// let dataSplit = splitData(data1);
+// console.log(createObject(dataSplit));
 
-console.log(auctionWinner(data1));
-// Selamat rudi anda mendapatkan tiket dengan harga 50000
+// console.log(auctionWinner(data1));
+// // Selamat rudi anda mendapatkan tiket dengan harga 50000
 
-console.log(auctionWinner(data2));
-// Selamat murni anda mendapatkan tiket dengan harga 120000
+// console.log(auctionWinner(data2));
+// // Selamat murni anda mendapatkan tiket dengan harga 120000
 
 module.exports = auctionWinner;
