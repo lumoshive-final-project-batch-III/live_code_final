@@ -105,14 +105,52 @@ NOTE:
 
 function splitData(data) {
   // your code here
+  let result = [];
+
+  for (let i = 0; i < data.length; i++) {
+    let temp = [];
+    let word = "";
+
+    for (let j = 0; j < data[i].length; j++) {
+      if (data[i][j] === '-') {
+        temp.push(word);
+        word = "";
+      } else {
+        word += data[i][j];
+      }
+    }
+    temp.push(word);
+    result.push(temp);
+  }
+  return result;
 }
 
 function createObject(data) {
   // your code here
+  let result = [];
+  for (let i = 0; i < data.length; i++) {
+    let money = 0;
+    for (let j = 0; j < data[i][1].length; j++){
+      money = money * 10 + (data[i][1][j] - '0');
+    }
+    result.push({
+      name: data[i][0],
+      money: money
+    });
+  }
+  return result;
 }
 
 function checkMoney(data) {
   // your code here
+  let winner = data[0];
+
+  for (let i = 1; i < data.length; i++){
+    if (data[i].money > winner.money){
+      winner = data[i];
+    }
+  }
+  return winner;
 }
 
 function auctionWinner(data) {
@@ -120,6 +158,7 @@ function auctionWinner(data) {
   let object = createObject(array);
   let winner = checkMoney(object);
   // your code here
+  return "Selamat " + winner.name + " anda mendapatkan tiket dengan harga " + winner.money;
 }
 
 /* TEST CASE */

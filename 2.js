@@ -45,8 +45,40 @@ OUTPUT:
 
 */
 
+//disini saya buat function quoteGenerator yng menerima dari parameter arrOfarr berupa array 2 dimensi
 function quoteGenerator(arrOfArr) {
-  // Your code here
+    // Your code here
+    //disini saya buat variable output untuk menampung hasil akhir berupa array 
+    let output = [];
+    let quote = '';
+    let indexes = [];
+    
+    //untuk validasi input, ntar dicek apakah arrOfarr berupa array dan tidak kosong, jika tidak sesuai 
+    // maka akan mengembalikan 'invalid input'
+    if (!Array.isArray(arrOfArr) || arrOfArr.length === 0) {
+        return 'Invalid Input';
+    }
+    
+    //untuk mencari elemen terpanjang pada setiap inner array, buat loop untuk iterasi setiap inner array
+    for (let i = 0; i < arrOfArr.length; i++) {
+        let innerArray = arrOfArr[i];
+        let longestElement = '';
+        let longestIndex = 0; 
+      //buat loop untuk iterasi setiap elemen dalam inner array untuk mencarri elemen terpanjang
+        for (let j = 0; j < innerArray.length; j++) {
+            if (innerArray[j].length > longestElement.length) {
+                longestElement = innerArray[j];
+                longestIndex = j;
+            }
+        }
+        quote += longestElement + ' ';
+        indexes.push(longestIndex);
+    }
+    // disini saya trim untuk menghilangkan spasi di akhir quote dan push ke output beserta indexs
+    output.push(quote.trim());
+    output.push(indexes.join(','));
+
+    return output;
 }
 
 let quotes0 = [
@@ -79,11 +111,11 @@ let quotes4 = [
   ["Ruby", "JavaScript", "PHP"],
 ];
 
-console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover.', '6,3,6' ]
-console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~', '2,3,0,1,4' ]
-console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer', '6,7,0,13' ]
-console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3', '0,6,1,11' ]
-console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript', '0,0,1' ]
+console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover. - 2.js:114', '6,3,6' ]
+console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~ - 2.js:115', '2,3,0,1,4' ]
+console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer - 2.js:116', '6,7,0,13' ]
+console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3 - 2.js:117', '0,6,1,11' ]
+console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript - 2.js:118', '0,0,1' ]
 console.log(quoteGenerator([])); // invalid input
 console.log(quoteGenerator()); // invalid input
 

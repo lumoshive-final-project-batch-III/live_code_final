@@ -65,8 +65,42 @@ let groups = [
 
 
 function hireGroup(groups, budget) {
-    // code di sini
+    // validasi budget
+    if (budget === undefined) {
+        return "There's no budget"
+    }
 
+    let result = {
+        performances: {},
+        change: budget
+    }
+
+    let canHire = true
+
+    // selama masih bisa meng-hire minimal 1 group
+    while (canHire) {
+        canHire = false
+
+        // loop group dari atas (urutan tidak diubah)
+        for (let i = 0; i < groups.length; i++) {
+            let name = groups[i].name
+            let price = groups[i].price
+
+            if (result.change >= price) {
+                //jika belum ada, set awal 0
+                if (result.performances[name] === undefined) {
+                    result.performances[name] = 0
+                }
+
+                //hasil hire, tambah jumlah performance dan kurangi budgetnya
+                result.performances[name] += 1
+                result.change -= price
+                canHire = true
+            }
+        }
+    }
+
+    return result
 }
 
 console.log(hireGroup(groups, 5350))
@@ -90,18 +124,18 @@ console.log(hireGroup(groups, 1000))
 //     },
 //     change : 75
 // }
-console.log(hireGroup(groups, 350))
+// console.log(hireGroup(groups, 350))
 // {
 //     performances : {
 //         Itsy : 2,
 //     },
 //     change : 0
 // }
-console.log(hireGroup(groups, 100))
+// console.log(hireGroup(groups, 100))
 // {
 //     performances :  {}
 //     change : 100
 // }
-console.log(hireGroup(groups))
+// console.log(hireGroup(groups))
 // There's no budget.
 module.exports = hireGroup

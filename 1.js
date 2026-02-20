@@ -56,7 +56,15 @@
 */
 
 function getHikingDestination(destinationList) {
-  // VARIABEL YANG SUDAH DI SEDIAKAN UNTUK FORMAT OUTPUT //
+  // VALIDASI INPUT
+  if (destinationList === undefined) {
+    return "Invalid Data!";
+  }
+ 
+  if (destinationList.length === 0) {
+    return "Destination List Data is Not Exist!";
+  }
+
   let output = {
     Jawa: [],
     Kalimantan: [],
@@ -64,9 +72,28 @@ function getHikingDestination(destinationList) {
     Aceh: [],
     Others: [],
   };
-  // Write your code here
+
+  for (let i = 0; i < destinationList.length; i++) {
+    let pulau = destinationList[i][0];
+    let gunung = destinationList[i][1];
+
+    if (pulau === "Jawa") {
+      output.Jawa.push(gunung);
+    } else if (pulau === "Kalimantan") {
+      output.Kalimantan.push(gunung);
+    } else if (pulau === "Aceh") {
+      output.Aceh.push(gunung);
+    } else if (pulau === "Sulawesi") {
+      output.Sulawesi.push(gunung);
+    } else {
+      output.Others.push(gunung);
+    }
+  }
+
+  return output;
 }
 
+// test cases 
 let destinationList1 = [
   ["Jawa", "Gunung Semeru"],
   ["Aceh", "Gunung Leuser"],
