@@ -67,6 +67,10 @@ let groups = [
 function hireGroup(groups, budget) {
     // code di sini
 
+    if (budget === undefined) {
+        return "There's no budget.";
+    }
+    
     let hasil = {
         performances: {},
         change: 0
@@ -79,7 +83,11 @@ function hireGroup(groups, budget) {
 
         for (let i = 0; i < groups.length; i++) {
             if (budget >= groups[i].price) {
-                hasil.performances[groups[i].name]++;
+                if (hasil.performances[groups[i].name] === undefined) {
+                    hasil.performances[groups[i].name] = 1;
+                } else {
+                    hasil.performances[groups[i].name]++;
+                }
                 budget -= groups[i].price;
                 bisaHire = true;
             }
