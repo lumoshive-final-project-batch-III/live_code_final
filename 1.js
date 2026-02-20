@@ -60,11 +60,11 @@ function getHikingDestination(destinationList) {
   if (destinationList === undefined) {
     return "Invalid Data!";
   }
- 
+ //jika data destintion berupa array kosong akan mengembalikan nilai dari return
   if (destinationList.length === 0) {
     return "Destination List Data is Not Exist!";
   }
-
+ 
   let output = {
     Jawa: [],
     Kalimantan: [],
@@ -72,11 +72,11 @@ function getHikingDestination(destinationList) {
     Aceh: [],
     Others: [],
   };
-
+  //loop untuk iterasi setiap elemen pada destinationlist
   for (let i = 0; i < destinationList.length; i++) {
     let pulau = destinationList[i][0];
     let gunung = destinationList[i][1];
-
+ //membuat kondisi untuk memasukan gunung kedalam kelompok berdasarkan pulaunya
     if (pulau === "Jawa") {
       output.Jawa.push(gunung);
     } else if (pulau === "Kalimantan") {
