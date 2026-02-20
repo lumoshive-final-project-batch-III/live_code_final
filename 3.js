@@ -67,43 +67,78 @@ let groups = [
 function hireGroup(groups, budget) {
     // code di sini
 
-    if (budget === )
+    if (budget === null || budget === undefined ) {
+        return "There's no budget.";
+    }
 
+    let hireResult = {
+        performance: {},
+        change: budget
+    };
+
+    let lowBudget = groups[0].price;
+    for (let i=1; i < groups.length; i++) {
+        if ( groups[i].price < lowBudget) {
+            lowBudget = groups[i].price;
+        }
+    }
+
+    while(hireResult.change >= lowBudget) {
+        let nowHire = false
+        
+        for (let j=0; j < groups.length; j++) {
+            let nowGroup = groups[j];
+
+            if (hireResult.change >= nowGroup.price) {
+                hireResult.change -= nowGroup.price;
+
+                if (hireResult.performance[nowGroup.name] === undefined) {
+                    hireResult.performance[nowGroup.name] = 1;
+                } else {
+                    hireResult.performance[nowGroup.name] ++;
+                }
+
+                // console.log(`hire success ${nowGroup.name}, available budget: ${hireResult.change}`)
+            }
+        }
+    }
+
+    return hireResult;
 }
 
-console.log(hireGroup(groups, 5350))
-// {
-//     performances : {
-//         Twoosh : 3,
-//         Itsy : 3,
-//         GET7 : 3,
-//         Whitepink : 3
-//         JYV : 3
-//     },
-//     change : 25
-// }
+// console.log(hireGroup(groups, 5350))
+// // {
+// //     performances : {
+// //         Twoosh : 3,
+// //         Itsy : 3,
+// //         GET7 : 3,
+// //         Whitepink : 3
+// //         JYV : 3
+// //     },
+// //     change : 25
+// // }
 
-console.log(hireGroup(groups, 1000))
-// {
-//     performances : {
-//         Twoosh : 1,
-//         Itsy : 1,
-//         Whitepink : 1
-//     },
-//     change : 75
-// }
-console.log(hireGroup(groups, 350))
-// {
-//     performances : {
-//         Itsy : 2,
-//     },
-//     change : 0
-// }
-console.log(hireGroup(groups, 100))
-// {
-//     performances :  {}
-//     change : 100
-// }
-console.log(hireGroup(groups))
-// There's no budget.
+// console.log(hireGroup(groups, 1000))
+// // {
+// //     performances : {
+// //         Twoosh : 1,
+// //         Itsy : 1,
+// //         Whitepink : 1
+// //     },
+// //     change : 75
+// // }
+// console.log(hireGroup(groups, 350))
+// // {
+// //     performances : {
+// //         Itsy : 2,
+// //     },
+// //     change : 0
+// // }
+// console.log(hireGroup(groups, 100))
+// // {
+// //     performances :  {}
+// //     change : 100
+// // }
+// console.log(hireGroup(groups))
+// // There's no budget.
 module.exports = hireGroup
