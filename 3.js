@@ -67,6 +67,26 @@ let groups = [
 function hireGroup(groups, budget) {
     // code di sini
 
+    let hasil = {
+        performances: {},
+        change: 0
+    }
+
+    bisaHire = true;
+
+    while (bisaHire) {
+        bisaHire = false;
+
+        for (let i = 0; i < groups.length; i++) {
+            if (budget >= groups[i].price) {
+                hasil.performances[groups[i].name]++;
+                budget -= groups[i].price;
+                bisaHire = true;
+            }
+        }
+    }
+    hasil.change = budget;
+    return hasil;
 }
 
 console.log(hireGroup(groups, 5350))

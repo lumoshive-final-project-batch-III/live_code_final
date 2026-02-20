@@ -65,6 +65,40 @@ function getHikingDestination(destinationList) {
     Others: [],
   };
   // Write your code here
+
+  if (destinationList === undefined) {
+    return "Invalid Data!";
+  }
+
+  if (destinationList.length === 0) {
+    return "Destination List Data is Not Exist!";
+  }
+
+  for (let i = 0; i < destinationList.length; i++) {
+    let pulau = destinationList[i][0];
+    let gunung = destinationList[i][1];
+
+    // console.log(pulau, gunung);
+
+    if (pulau === "Jawa") {
+      // console.log(gunung);
+      output.Jawa.push(gunung);
+      // console.log(output);
+    } else if (pulau === "Kalimantan") {
+      // console.log(gunung);
+      output.Kalimantan.push(gunung);
+    } else if (pulau === "Sulawesi") {
+      output.Sulawesi.push(gunung);
+    } else if (pulau === "Aceh") {
+      output.Aceh.push(gunung);
+    }
+    else {
+      output.Others.push(gunung);
+    }
+  }
+
+  return output;
+
 }
 
 let destinationList1 = [

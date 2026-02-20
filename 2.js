@@ -46,7 +46,37 @@ OUTPUT:
 */
 
 function quoteGenerator(arrOfArr) {
-  // Your code here
+  let quote = "";
+  let index = "";
+  
+  if (arrOfArr === undefined) {
+    return "invalid input";
+  }
+  
+  if (arrOfArr.length === 0) {
+    return "invalid input";
+  }
+
+  for (let baris = 0; baris < arrOfArr.length; baris++) {
+    let terpanjang = "";
+    let indexTerpanjang = 0;
+
+    // console.log(arrOfArr[baris].length);
+    
+    for (let kolom = 0; kolom < arrOfArr[baris].length; kolom++) {
+      if (arrOfArr[baris][kolom].length > terpanjang.length) {
+        terpanjang = arrOfArr[baris][kolom];
+        indexTerpanjang = kolom;
+
+      }
+    }
+
+    quote += terpanjang;
+    index += "," + indexTerpanjang;
+    
+
+  }
+  return [quote, index];
 }
 
 let quotes0 = [
