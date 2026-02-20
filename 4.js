@@ -102,17 +102,70 @@ NOTE:
 
  */
 
-
 function splitData(data) {
   // your code here
+  const output = [];
+  for (let i = 0; i < data.length; i++) {
+    let name = "";
+    let money = "";
+
+    const stringData = data[i];
+    let currentIndex = 0;
+    while (currentIndex < stringData.length) {
+      name += stringData[currentIndex];
+      currentIndex++;
+
+      if (stringData[currentIndex] === "-") {
+        currentIndex++;
+        break;
+      }
+    }
+
+    while (currentIndex < stringData.length) {
+      money += stringData[currentIndex];
+      currentIndex++;
+    }
+
+    output.push([name, money]);
+  }
+
+  return output;
 }
 
 function createObject(data) {
-  // your code here
+  const output = [];
+
+  for (let i = 0; i < data.length; i++) {
+    const arrData = data[i];
+
+    output.push({
+      name: arrData[0],
+      money: arrData[1],
+    });
+  }
+
+  return output;
 }
 
 function checkMoney(data) {
-  // your code here
+  // store current richest
+  let name = "";
+  let money = 0;
+
+  for (let i = 0; i < data.length; i++) {
+    const currentName = data[i].name;
+    const currentMoney = Number(data[i].money);
+
+    if (currentMoney > money) {
+      name = currentName;
+      money = currentMoney;
+    }
+  }
+
+  return {
+    name,
+    money,
+  };
 }
 
 function auctionWinner(data) {
@@ -120,6 +173,8 @@ function auctionWinner(data) {
   let object = createObject(array);
   let winner = checkMoney(object);
   // your code here
+
+  return `Selamat ${winner.name} anda mendapatkan tiket dengan harga ${winner.money}`;
 }
 
 /* TEST CASE */
