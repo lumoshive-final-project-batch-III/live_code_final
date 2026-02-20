@@ -67,6 +67,8 @@ let groups = [
 function hireGroup(groups, budget) {
     // code di sini
 
+    if (budget === )
+
 }
 
 console.log(hireGroup(groups, 5350))

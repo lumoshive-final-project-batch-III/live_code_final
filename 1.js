@@ -65,6 +65,31 @@ function getHikingDestination(destinationList) {
     Others: [],
   };
   // Write your code here
+
+  if (destinationList === undefined) {
+    return 'Invalid Data!'
+  }
+  if (destinationList.length === 0) {
+    return 'Destination List Data is Not Exist!'
+  }
+
+  for (let i=0; i < destinationList.length; i++) {
+    let pulau = destinationList[i][0];
+    let gunung = destinationList[i][1];
+
+    if(pulau === "Jawa") {
+      output.Jawa.push(gunung);
+    } else if (pulau === "Kalimantan") {
+      output.Kalimantan.push(gunung);
+    } else if (pulau === "Sulawesi") {
+      output.Sulawesi.push(gunung);
+    } else if (pulau === "Aceh") {
+      output.Aceh.push(gunung);
+    } else {
+      output.Others.push(gunung);
+    }
+  }
+  return output;
 }
 
 let destinationList1 = [
@@ -97,37 +122,41 @@ let destinationList3 = [
   ["NTB", "Gunung Tambora"],
 ];
 
-console.log(getHikingDestination(destinationList1));
-// {
-//   Jawa: ["Gunung Semeru", "Gunung Merbabu"],
-//   Kalimantan: ["Gunung Lianpran"],
-//   Sulawesi: ["Gunung Sojol"],
-//   Aceh: ["Gunung Leuser"],
-//   Others: ["Gunung Rinjani", "Puncak Jaya"],
-// };
+// console.log('Destination List 1:');
+// console.log(getHikingDestination(destinationList1));
+// // {
+// //   Jawa: ["Gunung Semeru", "Gunung Merbabu"],
+// //   Kalimantan: ["Gunung Lianpran"],
+// //   Sulawesi: ["Gunung Sojol"],
+// //   Aceh: ["Gunung Leuser"],
+// //   Others: ["Gunung Rinjani", "Puncak Jaya"],
+// // };
 
-console.log(getHikingDestination(destinationList2));
-// {
-//   Jawa: ["Gunung Pangrango", "Gunung Prau", "Gunung Papandayan"],
-//   Kalimantan: ["Gunung Bukit Raya"],
-//   Sulawesi: [],
-//   Aceh: [],
-//   Others: ["Gunung Batukaru", "Gunung Yamin", "Gunung Agung"],
-// };
+// console.log('Destination List 2:');
+// console.log(getHikingDestination(destinationList2));
+// // {
+// //   Jawa: ["Gunung Pangrango", "Gunung Prau", "Gunung Papandayan"],
+// //   Kalimantan: ["Gunung Bukit Raya"],
+// //   Sulawesi: [],
+// //   Aceh: [],
+// //   Others: ["Gunung Batukaru", "Gunung Yamin", "Gunung Agung"],
+// // };
 
-console.log(getHikingDestination(destinationList3));
-// {
-//   Jawa: ["Gunung Ciremay"],
-//   Kalimantan: [],
-//   Sulawesi: ["Gunung Mekongga", "Gunung Latimojong"],
-//   Aceh: ["Gunung Perkison", "Gunung Simpali"],
-//   Others: ["Gunung Kerinci", "Gunung Tambora"],
-// };
+// console.log('Destination List 3:');
+// console.log(getHikingDestination(destinationList3));
+// // {
+// //   Jawa: ["Gunung Ciremay"],
+// //   Kalimantan: [],
+// //   Sulawesi: ["Gunung Mekongga", "Gunung Latimojong"],
+// //   Aceh: ["Gunung Perkison", "Gunung Simpali"],
+// //   Others: ["Gunung Kerinci", "Gunung Tambora"],
+// // };
+// console.log('Destination List not exist:');
+// console.log(getHikingDestination([]));
+// // Destination List Data is Not Exist!
 
-console.log(getHikingDestination([]));
-// Destination List Data is Not Exist!
-
-console.log(getHikingDestination());
+// console.log('Destination List invalid:');
+// console.log(getHikingDestination());
 // Invalid Data!
 
 module.exports = getHikingDestination;

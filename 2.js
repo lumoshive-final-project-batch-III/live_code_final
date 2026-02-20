@@ -47,6 +47,48 @@ OUTPUT:
 
 function quoteGenerator(arrOfArr) {
   // Your code here
+
+  if (!Array.isArray(arrOfArr) || arrOfArr.length === 0) {
+    return 'invalid input'
+  }
+
+  let groupingQuote = [];
+  let groupingIndex = [];
+
+  for (let i=0; i < arrOfArr.length; i++) {
+    let element = arrOfArr[i];
+
+    let wordQuote = element[0];
+    let indexQuote = 0;
+
+    for (let j=1; j < element.length; j++) {
+      let word = element[j];
+
+      if (word.length > wordQuote.length) {
+        wordQuote = word;
+        indexQuote = j;
+      }
+    }
+
+    // console.log (`baris element ${i}: "${wordQuote}" di index "${indexQuote}}`)
+
+    groupingQuote.push(wordQuote);
+    groupingIndex.push(indexQuote);
+  }
+
+    let result = "";
+    let stringIndex = "";
+
+    for (let k = 0; k < groupingQuote.length; k++ ) {
+      result += groupingQuote[k];
+      stringIndex += groupingIndex[k];
+
+      if ( k < groupingQuote.length - 1 ) {
+        result += " ";
+        stringIndex += ","
+      }
+    }
+    return [result, stringIndex];
 }
 
 let quotes0 = [
@@ -79,12 +121,12 @@ let quotes4 = [
   ["Ruby", "JavaScript", "PHP"],
 ];
 
-console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover.', '6,3,6' ]
-console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~', '2,3,0,1,4' ]
-console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer', '6,7,0,13' ]
-console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3', '0,6,1,11' ]
-console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript', '0,0,1' ]
-console.log(quoteGenerator([])); // invalid input
-console.log(quoteGenerator()); // invalid input
+// console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover.', '6,3,6' ]
+// console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~', '2,3,0,1,4' ]
+// console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer', '6,7,0,13' ]
+// console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3', '0,6,1,11' ]
+// console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript', '0,0,1' ]
+// console.log(quoteGenerator([])); // invalid input
+// console.log(quoteGenerator()); // invalid input
 
 module.exports = quoteGenerator;
