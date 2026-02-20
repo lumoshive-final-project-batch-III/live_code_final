@@ -48,8 +48,7 @@
   ---------
   1. Jika data destinationList berupa array kosong, maka mengembalikan 'Destination List Data is Not Exist!'
   2. Jika input kosong (undefined), maka mengembalikan 'Invalid Data!'
- 
- 
+
   RESTRICTION
   ------------
   1. DILARANG menggunakan built-in function split, slice, splice, includes, find, findIndex, indexOf
@@ -65,6 +64,59 @@ function getHikingDestination(destinationList) {
     Others: [],
   };
   // Write your code here
+
+  const jawa = output.Jawa;
+  const kalimantan = output.Kalimantan;
+  const sulawesi = output.Sulawesi;
+  const aceh = output.Aceh;
+  const others = output.Others;
+
+
+  if (destinationList === undefined) {
+    return "Invalid Data!";
+  }
+
+  if (destinationList.length === 0) {
+    return "Destination List Data is Not Exist!";
+  }
+
+  for (let i = 0; i < destinationList.length; i++) {
+    let pulau = destinationList[i][0];
+    let gunung = destinationList[i][1];
+
+    // console.log(pulau)
+    // console.log(gunung);
+
+    // if(pulau === 'Jawa') {
+    //   jawa.push(gunung)
+    //   jawa
+    // }
+
+    switch (pulau) {
+      case "Jawa":
+        jawa.push(gunung);
+        break;
+
+      case "Kalimantan":
+        kalimantan.push(gunung);
+        kalimantan;
+        break;
+
+      case "Sulawesi":
+        sulawesi.push(gunung);
+        sulawesi;
+        break;
+      case "Aceh":
+        aceh.push(gunung);
+        aceh;
+        break;
+
+      default:
+        others.push(gunung);
+    }
+  }
+
+  return output;
 }
 
 let destinationList1 = [
