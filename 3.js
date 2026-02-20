@@ -68,9 +68,9 @@ function hireGroup(groups, budget) {
     // code di sini
 
     if (budget === undefined) {
-        return "There's no budget.";
+        return "There's no budget";
     }
-    
+
     let hasil = {
         performances: {},
         change: 0
