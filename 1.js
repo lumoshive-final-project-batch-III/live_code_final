@@ -64,7 +64,24 @@ function getHikingDestination(destinationList) {
     Aceh: [],
     Others: [],
   };
+
   // Write your code here
+  if (destinationList === undefined) {
+    return "Invalid Data!";
+  }
+
+  if (destinationList.length === 0) {
+    return "Destination List Data is Not Exist!";
+  }
+
+  for (let i = 0; i < destinationList.length; i++) {
+    const destination = destinationList[i];
+    const island = destination[0];
+    if (output[island] !== undefined) output[island].push(destination[1]);
+    else output.Others.push(destination[1]);
+  }
+
+  return output;
 }
 
 let destinationList1 = [

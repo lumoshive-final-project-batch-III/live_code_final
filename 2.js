@@ -47,6 +47,40 @@ OUTPUT:
 
 function quoteGenerator(arrOfArr) {
   // Your code here
+  if (!arrOfArr || arrOfArr.length === 0) {
+    return "invalid input";
+  }
+
+  let quote = "";
+  let indexes = "";
+
+  for (let i = 0; i < arrOfArr.length; i++) {
+    let currentLength = 0;
+    let currentIndex = 0;
+    for (let j = 0; j < arrOfArr[i].length; j++) {
+      let wordLength = 0;
+      for (let char = 0; char < arrOfArr[i][j].length; char++) {
+        wordLength++;
+      }
+
+      if (wordLength > currentLength) {
+        currentLength = wordLength;
+        currentIndex = j;
+      }
+    }
+
+    const shouldAddSeparator = i < arrOfArr.length - 1;
+
+    quote += arrOfArr[i][currentIndex];
+    indexes += currentIndex;
+
+    if (shouldAddSeparator) {
+      quote += " ";
+      indexes += ",";
+    }
+  }
+
+  return [quote, indexes];
 }
 
 let quotes0 = [
@@ -55,23 +89,137 @@ let quotes0 = [
   ["U Can't", "Know", "About", "Things", "U Have", "Yet To", "Discover."],
 ];
 let quotes1 = [
-  ["It", "is", "never", "too", "late", "to", "be", "what", "you", "might", "have", "been."],
-  ["If", "you", "are", "gonna", "be", "two", "faced", "at", "least", "make", "one", "of", "them", "nice"],
+  [
+    "It",
+    "is",
+    "never",
+    "too",
+    "late",
+    "to",
+    "be",
+    "what",
+    "you",
+    "might",
+    "have",
+    "been.",
+  ],
+  [
+    "If",
+    "you",
+    "are",
+    "gonna",
+    "be",
+    "two",
+    "faced",
+    "at",
+    "least",
+    "make",
+    "one",
+    "of",
+    "them",
+    "nice",
+  ],
   ["Give", "the", "best", "you", "have"],
   ["be", "you", "and", "be", "OK"],
-  ["twinkle", "twinkle", "little", "star", "~~~up~~~", "above", "the", "world", "so", "high"],
+  [
+    "twinkle",
+    "twinkle",
+    "little",
+    "star",
+    "~~~up~~~",
+    "above",
+    "the",
+    "world",
+    "so",
+    "high",
+  ],
 ];
 let quotes2 = [
-  ["I", "may", "not", "have", "gone", "where", "I intend", "to", "go,", "but", "I", "think", "I", "have", "ended", "up", "where", "I", "needed", "to", "be."],
-  ["I", "solemnly", "swear", "that", "I", "am", "up", "to be a great", "no good."],
+  [
+    "I",
+    "may",
+    "not",
+    "have",
+    "gone",
+    "where",
+    "I intend",
+    "to",
+    "go,",
+    "but",
+    "I",
+    "think",
+    "I",
+    "have",
+    "ended",
+    "up",
+    "where",
+    "I",
+    "needed",
+    "to",
+    "be.",
+  ],
+  [
+    "I",
+    "solemnly",
+    "swear",
+    "that",
+    "I",
+    "am",
+    "up",
+    "to be a great",
+    "no good.",
+  ],
   ["JS", "ha", "ck", "ti", "v8"],
-  ["I",  "like", "fiction,", "it", "wakes", "up", "the", "brain", "cells.", "Fantasy", "is", "a", "required", "developer", "in", "living."],
+  [
+    "I",
+    "like",
+    "fiction,",
+    "it",
+    "wakes",
+    "up",
+    "the",
+    "brain",
+    "cells.",
+    "Fantasy",
+    "is",
+    "a",
+    "required",
+    "developer",
+    "in",
+    "living.",
+  ],
 ];
 let quotes3 = [
   ["Whatever", "you", "are,", "be", "a", "good", "one"],
-  ["You", "only", "live", "once,", "but", "if", "you do", "it", "right,", "once", "is", "enough"],
+  [
+    "You",
+    "only",
+    "live",
+    "once,",
+    "but",
+    "if",
+    "you do",
+    "it",
+    "right,",
+    "once",
+    "is",
+    "enough",
+  ],
   ["Just", "do it"],
-  ["Never", "put", "off", "till", "morrow", "what", "may", "be", "done", "today", "as", "well <3"],
+  [
+    "Never",
+    "put",
+    "off",
+    "till",
+    "morrow",
+    "what",
+    "may",
+    "be",
+    "done",
+    "today",
+    "as",
+    "well <3",
+  ],
 ];
 let quotes4 = [
   ["Istanbul", "Helsinki", "Glasgow"],
