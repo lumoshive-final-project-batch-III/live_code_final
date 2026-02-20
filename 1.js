@@ -114,7 +114,7 @@ let destinationList3 = [
   ["NTB", "Gunung Tambora"],
 ];
 
-console.log(getHikingDestination(destinationList1));
+// console.log(getHikingDestination(destinationList1));
 // {
 //   Jawa: ["Gunung Semeru", "Gunung Merbabu"],
 //   Kalimantan: ["Gunung Lianpran"],
@@ -123,7 +123,7 @@ console.log(getHikingDestination(destinationList1));
 //   Others: ["Gunung Rinjani", "Puncak Jaya"],
 // };
 
-console.log(getHikingDestination(destinationList2));
+// console.log(getHikingDestination(destinationList2));
 // {
 //   Jawa: ["Gunung Pangrango", "Gunung Prau", "Gunung Papandayan"],
 //   Kalimantan: ["Gunung Bukit Raya"],
@@ -132,7 +132,7 @@ console.log(getHikingDestination(destinationList2));
 //   Others: ["Gunung Batukaru", "Gunung Yamin", "Gunung Agung"],
 // };
 
-console.log(getHikingDestination(destinationList3));
+// console.log(getHikingDestination(destinationList3));
 // {
 //   Jawa: ["Gunung Ciremay"],
 //   Kalimantan: [],
@@ -141,10 +141,10 @@ console.log(getHikingDestination(destinationList3));
 //   Others: ["Gunung Kerinci", "Gunung Tambora"],
 // };
 
-console.log(getHikingDestination([]));
+// console.log(getHikingDestination([]));
 // Destination List Data is Not Exist!
 
-console.log(getHikingDestination());
+// console.log(getHikingDestination());
 // Invalid Data!
 
 module.exports = getHikingDestination;

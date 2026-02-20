@@ -227,12 +227,12 @@ let quotes4 = [
   ["Ruby", "JavaScript", "PHP"],
 ];
 
-console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover.', '6,3,6' ]
-console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~', '2,3,0,1,4' ]
-console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer', '6,7,0,13' ]
-console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3', '0,6,1,11' ]
-console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript', '0,0,1' ]
-console.log(quoteGenerator([])); // invalid input
-console.log(quoteGenerator()); // invalid input
+// console.log(quoteGenerator(quotes0)); // [ 'Explore. Dream. Discover.', '6,3,6' ]
+// console.log(quoteGenerator(quotes1)); // [ 'never gonna Give you ~~~up~~~', '2,3,0,1,4' ]
+// console.log(quoteGenerator(quotes2)); // [ 'I intend to be a great JS developer', '6,7,0,13' ]
+// console.log(quoteGenerator(quotes3)); // [ 'Whatever you do do it well <3', '0,6,1,11' ]
+// console.log(quoteGenerator(quotes4)); // [ 'Istanbul have a great interest in JavaScript', '0,0,1' ]
+// console.log(quoteGenerator([])); // invalid input
+// console.log(quoteGenerator()); // invalid input
 
 module.exports = quoteGenerator;

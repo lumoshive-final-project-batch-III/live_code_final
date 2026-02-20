@@ -183,10 +183,10 @@ let data1 = ["didi-2050", "rudi-50000", "andi-1000", "budi-10000"];
 
 let data2 = ["murni-120000", "rani-50400", "dini-107", "rinjani-18000"];
 
-console.log(auctionWinner(data1));
+// console.log(auctionWinner(data1));
 // Selamat rudi anda mendapatkan tiket dengan harga 50000
 
-console.log(auctionWinner(data2));
+// console.log(auctionWinner(data2));
 // Selamat murni anda mendapatkan tiket dengan harga 120000
 
 module.exports = auctionWinner;

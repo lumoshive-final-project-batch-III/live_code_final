@@ -100,7 +100,7 @@ function hireGroup(groups, budget) {
   };
 }
 
-console.log(hireGroup(groups, 5350));
+// console.log(hireGroup(groups, 5350));
 // {
 //     performances : {
 //         Twoosh : 3,
@@ -112,7 +112,7 @@ console.log(hireGroup(groups, 5350));
 //     change : 25
 // }
 
-console.log(hireGroup(groups, 1000));
+// console.log(hireGroup(groups, 1000));
 // {
 //     performances : {
 //         Twoosh : 1,
@@ -121,18 +121,18 @@ console.log(hireGroup(groups, 1000));
 //     },
 //     change : 75
 // }
-console.log(hireGroup(groups, 350));
+// console.log(hireGroup(groups, 350));
 // {
 //     performances : {
 //         Itsy : 2,
 //     },
 //     change : 0
 // }
-console.log(hireGroup(groups, 100));
+// console.log(hireGroup(groups, 100));
 // {
 //     performances :  {}
 //     change : 100
 // }
-console.log(hireGroup(groups));
+// console.log(hireGroup(groups));
 // There's no budget.
 module.exports = hireGroup;
